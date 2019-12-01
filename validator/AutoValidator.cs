@@ -1,47 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Validation_Framework.builder;
 using Validation_Framework.rule;
 
 namespace Validation_Framework.validator
 {
-    class AutoValidator : ComponentValidator
+    public class AutoValidator : ComponentValidator
     {
         public AutoValidator(Type type)
         {
-            foreach (FieldInfo property in type.GetFields())
+            foreach (FieldInfo property in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
             {
                 Builder builder = Builder.Create();
-                bool flag = false;
-                foreach (Attribute attribute in property.GetCustomAttributes())
+                bool    hasRule = false;
+
+                foreach (Attribute attribute in property.GetCustomAttributes(typeof(AbstractRule), false))
                 {
-                    if (attribute is AbstractRule)
-                    {
-                        builder.AddRule((attribute as AbstractRule));
-                        flag = true;
-                    }
-                }
-                if (flag)
+                    builder.AddRule((attribute as AbstractRule));
+                    hasRule = true;
+                }            
+
+                if (hasRule)
                 {
-                    this.SetValidator(property.Name, x => property.GetValue(x), builder.Build());
+                    SetValidator(property.Name, x => property.GetValue(x), builder.Build());
                 }
             }
-        }
-
-        public bool CheckValid(dynamic value)
-        {
-            this.Validate(value);
-            return IsValid();
-        }
-
-        public bool CheckValidByName(dynamic value, string nameProperty)
-        {
-            this.ValidateByName(value, nameProperty);
-            return IsValid();
-        }
+        }        
     }
 }

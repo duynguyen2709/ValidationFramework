@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Validation_Framework.builder;
 using Validation_Framework.rule;
 using Validation_Framework.validator;
 
 namespace Validation_Framework
 {
-    class Program
+    internal class Program
     {
-        class Info
+        private class Info
         {
-            [MustBeLargerThan(123)]
+            [MinLength(123)]
             [IsPassword(errorMessage: "Khong phai password")]
             public string Name;
 
-            public int ID; 
+            [IsNumber]
+            public int ID;
 
             public Info(string name, int id)
             {
@@ -26,7 +24,7 @@ namespace Validation_Framework
             }
         }
 
-        class InfoValidate : CustomValidator
+        private class InfoValidate : CustomValidator
         {
             public string Name;
 
@@ -34,20 +32,20 @@ namespace Validation_Framework
 
             public InfoValidate(string name, int id)
             {
-                this.Name = name;
-                this.ID = id;
+                Name = name;
+                ID = id;
                 Init();
             }
 
             protected override void Init()
             {
-                this.SetValidator(nameof(this.Name), x => x.Name,
+                SetValidator(nameof(Name), x => x.Name,
                                     Builder.Create()
                                     .AddRule(new IsPassword("Khong phai password"))
                                     .AddRule(new IsNumber())
                                     .Build());
 
-                this.SetValidator(nameof(this.ID), x => x.ID,
+                SetValidator(nameof(ID), x => x.ID,
                                     Builder.Create()
                                     .AddRule(new IsPassword("Khong phai password Nha"))
                                     .AddRule(new IsNumber())
@@ -55,29 +53,27 @@ namespace Validation_Framework
             }
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            // !!! Don't delete this line
+            // Print UTF8 character in console
+            Console.OutputEncoding = Encoding.UTF8;
+
             AutoValidator autoValidator = new AutoValidator(typeof(Info));
 
             autoValidator.Validate(new Info("112312312312312", 2)).ForEach(
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
                 );
 
+            Console.WriteLine(String.Format("Class Valid = {0}", autoValidator.IsValid));
             Console.WriteLine("----------------------------------------");
 
-            Console.WriteLine(autoValidator.CheckValid(new Info("112312312312312", 2)));
-
-            Console.WriteLine("----------------------------------------");
-
-            autoValidator.ValidateByName(new Info("112312312312312", 2), nameof(Info.ID)).ForEach(
+            autoValidator.ValidateByPropertyName(new Info("112312312312312", 2), nameof(Info.Name)).ForEach(
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
                 );
+            Console.WriteLine(String.Format("Property Valid = {0}", autoValidator.IsValid));
 
             Console.WriteLine("----------------------------------------");
-
-            Console.WriteLine(autoValidator.CheckValidByName(new Info("112312312312312", 2), nameof(Info.ID)));
-
-            Console.WriteLine("*********************************************");
 
             InfoValidate infoValidate = new InfoValidate("2", 3);
 
@@ -87,17 +83,15 @@ namespace Validation_Framework
 
             Console.WriteLine("----------------------------------------");
 
-            Console.WriteLine(infoValidate.CheckValid());
+            Console.WriteLine(infoValidate.IsValid);
 
             Console.WriteLine("----------------------------------------");
 
-            infoValidate.ValidateByName(nameof(InfoValidate.Name)).ForEach(
+            infoValidate.ValidateByPropertyName(nameof(InfoValidate.Name)).ForEach(
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
                 );
 
-            Console.WriteLine("----------------------------------------");
-
-            Console.WriteLine(infoValidate.CheckValidByName(nameof(InfoValidate.Name)));
+            Console.WriteLine("----------------------------------------");           
 
         }
     }

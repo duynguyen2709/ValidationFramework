@@ -3,39 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Validation_Framework.CustomException;
 using Validation_Framework.result;
 
 namespace Validation_Framework.validator
 {
-    class ComponentValidator : AbstractValidator
+    public class ComponentValidator : AbstractValidator
     {
         protected readonly Dictionary<string, ValidationPair> fields;
 
         public ComponentValidator() : base()
         {
-            this.fields = new Dictionary<string, ValidationPair>();
+            // <propertyName, {value : rules}
+            fields = new Dictionary<string, ValidationPair>();
         }
 
         public override List<ValidationResult> Validate(dynamic value)
         {
-            listResult.Clear();
+            ListResult.Clear();
 
             foreach (ValidationPair validationPair in fields.Values)
-                listResult.AddRange(validationPair.ValidateAndGetResult(value));
+                ListResult.AddRange(validationPair.ValidateAndGetResult(value));
 
-            return listResult;
+            return ListResult;
         }
 
-        public List<ValidationResult> ValidateByName(dynamic value, string nameProperty)
+        public List<ValidationResult> ValidateByPropertyName(dynamic value, string nameProperty)
         {
-            listResult.Clear();
+            ListResult.Clear();
             if (fields.ContainsKey(nameProperty))
             {
-                listResult.AddRange(fields[nameProperty].ValidateAndGetResult(value));
+                ListResult.AddRange(fields[nameProperty].ValidateAndGetResult(value));
                 return fields[nameProperty].ValidateAndGetResult(value);
             }
-
-            return new List<ValidationResult>();
+            else
+            {
+                throw new PropertyNotFoundException(nameProperty);
+            }
         }
 
         protected void SetValidator(string name, Func<dynamic, dynamic> func, FieldValidator validator)
@@ -49,8 +53,6 @@ namespace Validation_Framework.validator
         }
 
         protected virtual void Init()
-        {
-
-        }
+        {}
     }
 }

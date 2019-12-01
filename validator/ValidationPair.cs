@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Validation_Framework.result;
 
 namespace Validation_Framework.validator
 {
-    class ValidationPair
+    public class ValidationPair
     {
-        readonly Func<dynamic, dynamic> func;
-        readonly FieldValidator validator;
+        private readonly Func<dynamic, dynamic> func;
+        private readonly FieldValidator validator;
 
         public ValidationPair(Func<dynamic, dynamic> func, FieldValidator validator)
         {
@@ -20,14 +17,14 @@ namespace Validation_Framework.validator
 
         public void Validate(dynamic value)
         {
-            this.validator.ListResult.Clear();
+            validator.ListResult.Clear();
             this.validator.Validate(func(value));
         }
 
-        public List<ValidationResult> ValidateAndGetResult(dynamic value)
+        public List<ValidationResult> ValidateAndGetResult(dynamic target)
         {
-            Validate(value);
-            return this.validator.ListResult;
+            Validate(target);
+            return validator.ListResult;
         }
     }
 }

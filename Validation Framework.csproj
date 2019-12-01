@@ -43,25 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="builder\Builder.cs" />
+    <Compile Include="Builder\Builder.cs" />
+    <Compile Include="Exception\PropertyNotFoundException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="result\ValidationResult.cs" />
-    <Compile Include="rule\AbstractRule.cs" />
-    <Compile Include="rule\CompoundRule.cs" />
-    <Compile Include="rule\IsNumber.cs" />
-    <Compile Include="rule\IsPassword.cs" />
-    <Compile Include="rule\MustBeLargerThan.cs" />
-    <Compile Include="rule\SingleRule.cs" />
-    <Compile Include="validator\AbstractValidator.cs" />
-    <Compile Include="validator\AutoValidator.cs" />
-    <Compile Include="validator\ComponentValidator.cs" />
-    <Compile Include="validator\CustomValidator.cs" />
-    <Compile Include="validator\FieldValidator.cs" />
-    <Compile Include="validator\ValidationPair.cs" />
+    <Compile Include="Result\ValidationResult.cs" />
+    <Compile Include="Rule\Base\AbstractRule.cs" />
+    <Compile Include="Rule\Base\CompoundRule.cs" />
+    <Compile Include="Rule\SingleRule\IsNumber.cs" />
+    <Compile Include="Rule\CompoundRule\IsPassword.cs" />
+    <Compile Include="Rule\SingleRule\MinLength.cs" />
+    <Compile Include="Rule\Base\SingleRule.cs" />
+    <Compile Include="Validator\AbstractValidator.cs" />
+    <Compile Include="Validator\AutoValidator.cs" />
+    <Compile Include="Validator\ComponentValidator.cs" />
+    <Compile Include="Validator\CustomValidator.cs" />
+    <Compile Include="Validator\FieldValidator.cs" />
+    <Compile Include="Validator\ValidationPair.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
