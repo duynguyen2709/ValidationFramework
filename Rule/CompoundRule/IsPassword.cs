@@ -7,7 +7,9 @@
 
         public IsPassword(string errorMessage) : base(errorMessage)
         {
-            AddRule(new MinLength(6));
+            AddRule(new MinLength(8));
+            AddRule(new HasUpperCase());
+            AddRule(new HasNumber());
             // more rules here
         }
     }

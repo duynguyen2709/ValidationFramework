@@ -51,10 +51,12 @@
     <Compile Include="Result\ValidationResult.cs" />
     <Compile Include="Rule\Base\AbstractRule.cs" />
     <Compile Include="Rule\Base\CompoundRule.cs" />
+    <Compile Include="Rule\CompoundRule\IsEmail.cs" />
     <Compile Include="Rule\CompoundRule\IsPhoneNumber.cs" />
     <Compile Include="Rule\SingleRule\HasLowerCase.cs" />
     <Compile Include="Rule\SingleRule\HasNumber.cs" />
     <Compile Include="Rule\SingleRule\HasUpperCase.cs" />
+    <Compile Include="Rule\SingleRule\IsDate.cs" />
     <Compile Include="Rule\SingleRule\IsNotEmpty.cs" />
     <Compile Include="Rule\SingleRule\IsNumber.cs" />
     <Compile Include="Rule\CompoundRule\IsPassword.cs" />
