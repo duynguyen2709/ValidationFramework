@@ -91,7 +91,8 @@ namespace Validation_Framework
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
                 );
 
-            Console.WriteLine("----------------------------------------");           
+            Console.WriteLine("----------------------------------------");
+            Console.ReadLine();
 
         }
     }

@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Validation_Framework</RootNamespace>
     <AssemblyName>Validation Framework</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,10 +51,19 @@
     <Compile Include="Result\ValidationResult.cs" />
     <Compile Include="Rule\Base\AbstractRule.cs" />
     <Compile Include="Rule\Base\CompoundRule.cs" />
+    <Compile Include="Rule\CompoundRule\IsPhoneNumber.cs" />
+    <Compile Include="Rule\SingleRule\HasLowerCase.cs" />
+    <Compile Include="Rule\SingleRule\HasNumber.cs" />
+    <Compile Include="Rule\SingleRule\HasUpperCase.cs" />
+    <Compile Include="Rule\SingleRule\IsNotEmpty.cs" />
     <Compile Include="Rule\SingleRule\IsNumber.cs" />
     <Compile Include="Rule\CompoundRule\IsPassword.cs" />
+    <Compile Include="Rule\SingleRule\IsRegexContain.cs" />
+    <Compile Include="Rule\SingleRule\IsRegexMatch.cs" />
+    <Compile Include="Rule\SingleRule\MaxLength.cs" />
     <Compile Include="Rule\SingleRule\MinLength.cs" />
     <Compile Include="Rule\Base\SingleRule.cs" />
+    <Compile Include="Rule\SingleRule\StartWith.cs" />
     <Compile Include="Validator\AbstractValidator.cs" />
     <Compile Include="Validator\AutoValidator.cs" />
     <Compile Include="Validator\ComponentValidator.cs" />
