@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Validation_Framework.rule
 {
-    class IsRegexContain : SingleRule
+    public class IsRegexContain : SingleRule
     {
         public IsRegexContain(string pattern) : base("Chuỗi không khớp với mẫu đưa ra")
         {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Validation_Framework.rule
 {
-    class StartWith : SingleRule
+    public class StartWith : SingleRule
     {
-        public StartWith(string input) : base("Chuỗi phải bắt đầu bằng kí tự" + input)
+        public StartWith(string input) : base("Chuỗi phải bắt đầu bằng kí tự " + input)
         {
             value = input;
         }
@@ -18,8 +18,7 @@ namespace Validation_Framework.rule
         }
         protected override bool CheckValid(dynamic target)
         {
-            if (target[0] == value[0]) return true;
-            else return false;
+            return (target[0] == value[0]);
         }
     }
 }

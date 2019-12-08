@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Validation_Framework.rule
 {
-    class IsRegexMatch : SingleRule
+    public class IsRegexMatch : SingleRule
     {
         public IsRegexMatch(string pattern):base("Chuỗi không khớp với mẫu đưa ra")
         {
@@ -21,8 +21,7 @@ namespace Validation_Framework.rule
         protected override bool CheckValid(dynamic target)
         {
             Match result = Regex.Match(target, value);
-            if (result.Length == target.Length) return true;
-            else return false;
+            return (result.Length == target.Length);
             
         }
     }

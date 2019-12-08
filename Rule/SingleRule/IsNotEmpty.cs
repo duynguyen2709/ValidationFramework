@@ -8,7 +8,7 @@ namespace Validation_Framework.rule
 {
     public class IsNotEmpty : SingleRule
     {
-        public IsNotEmpty() : base("Chuỗi không rỗng")
+        public IsNotEmpty() : base("Chuỗi không được rỗng")
         { }
 
         public IsNotEmpty(string message) : base(message)

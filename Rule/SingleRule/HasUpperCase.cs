@@ -2,10 +2,10 @@
 
 namespace Validation_Framework.rule
 {
-    class HasUpperCase : SingleRule
+    public class HasUpperCase : SingleRule
     {
 
-        public HasUpperCase() : base("Chuỗi phải chưa ít nhất 1 kí tự hoa")
+        public HasUpperCase() : base("Chuỗi phải chứa ít nhất 1 kí tự hoa")
         {
             value = 1;
         }
@@ -17,8 +17,7 @@ namespace Validation_Framework.rule
         protected override bool CheckValid(dynamic target)
         {
             int count = (target as string).Count(c => char.IsUpper(c));
-            if (count >= value) return true;
-            else return false;
+            return (count >= value);
         }
     }
 }

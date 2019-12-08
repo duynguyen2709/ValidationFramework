@@ -2,7 +2,7 @@
 
 namespace Validation_Framework.rule
 {
-    class HasNumber : SingleRule
+    public class HasNumber : SingleRule
     {
 
         public HasNumber() : base("Chuỗi phải chứa số")
@@ -17,8 +17,7 @@ namespace Validation_Framework.rule
         protected override bool CheckValid(dynamic target)
         {
             int count = (target as string).Count(c => char.IsNumber(c));
-            if (count >= value) return true;
-            else return false;
+            return (count >= value);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Validation_Framework.rule
 {
-    class IsPhoneNumber :CompoundRule
+    public class IsPhoneNumber :CompoundRule
     {
         public IsPhoneNumber() : this("Số điện thoại không hợp lệ")
         {

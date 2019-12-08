@@ -1,6 +1,6 @@
 ﻿namespace Validation_Framework.rule
 {
-    internal class IsNumber : SingleRule
+    public class IsNumber : SingleRule
     {
         public IsNumber() : base("Không phải số")
         { }

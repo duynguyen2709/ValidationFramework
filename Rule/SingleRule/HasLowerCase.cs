@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Validation_Framework.rule
 {
-    class HasLowerCase : SingleRule
+    public class HasLowerCase : SingleRule
     {
 
-        public HasLowerCase() : base("Chuỗi phải chưa ít nhất 1 kí tự thường")
+        public HasLowerCase() : base("Chuỗi phải chứa ít nhất 1 kí tự thường")
         {
             value = 1;
         }
@@ -21,8 +21,7 @@ namespace Validation_Framework.rule
         protected override bool CheckValid(dynamic target)
         {
             int count = (target as string).Count(c => char.IsLower(c));
-            if (count >= value) return true;
-            else return false;
+            return (count >= value);
         }
     }
 }

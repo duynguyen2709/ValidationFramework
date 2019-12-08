@@ -2,7 +2,7 @@
 {
     public class MaxLength : SingleRule
     {
-        public MaxLength(int n) : this(string.Format("Chuỗi phải chỉ được có tối đa {0} kí tự", n), n)
+        public MaxLength(int n) : this(string.Format("Chuỗi chỉ được có tối đa {0} kí tự", n), n)
         { }
 
         public MaxLength(string message, int n) : base(message)
