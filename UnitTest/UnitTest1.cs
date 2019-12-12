@@ -57,7 +57,7 @@ namespace UnitTest
         [TestMethod]
         public void TestRegexContains()
         {
-            SingleRule rule = new IsRegexContain(@"/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/");
+            SingleRule rule = new IsRegexMatch(@"^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$");
             ValidationResult result = rule.Validate("127.0.0.1");
 
             Assert.IsTrue(result.IsValid);
@@ -65,7 +65,25 @@ namespace UnitTest
             //  validate with https://regexr.com/
             //  return true
 
-            // https://regex101.com/r/YJdXLW/1/
+            // https://regex01.com/r/YJdXLW/1/
+        }
+
+        [TestMethod]
+        public void TestIsEmail()
+        {
+            CompoundRule rule = new IsEmail();
+            ValidationResult result = rule.Validate("Duytv2907@gmail.com.");
+
+            Assert.IsFalse(result.IsValid);
+        }
+
+        [TestMethod]
+        public void TestIsDate()
+        {
+            SingleRule rule = new IsDate();
+            ValidationResult result = rule.Validate("18/1/2017");
+
+            Assert.IsTrue(result.IsValid);
         }
     }
 }
