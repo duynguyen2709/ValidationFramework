@@ -20,5 +20,10 @@ namespace Validation_Framework.Rule
             MatchCollection matchCollection = rg.Matches(target);
             return matchCollection.Count > 0 ? true : false;
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

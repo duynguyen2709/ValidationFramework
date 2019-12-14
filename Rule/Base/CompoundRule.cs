@@ -27,5 +27,7 @@ namespace Validation_Framework.Rule
             }
             return true;
         }
+
+        protected abstract override void AddSupportType();
     }
 }

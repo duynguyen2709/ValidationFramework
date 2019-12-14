@@ -16,5 +16,10 @@ namespace Validation_Framework.Rule
             int count = (target as string).Count(c => char.IsNumber(c));
             return (count >= value);
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

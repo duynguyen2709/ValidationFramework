@@ -9,5 +9,10 @@
         {
             AddRule(new IsRegexMatch(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"));
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

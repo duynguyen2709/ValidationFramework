@@ -10,16 +10,24 @@ namespace Validation_Framework.Rule
         protected AbstractRule(string errorMessage)
         {
             this.errorMessage = errorMessage;
+            AddSupportType();
         }
 
-        protected AbstractRule() { }
+        private AbstractRule() { }
 
         public ValidationResult Validate(dynamic target)
         {
             ValidationResult validationResult;
             try
             {
-                if (!CheckValid(target))
+                // check type support
+                if (RuleContainer.GetInstance().CheckRuleSupportingType(GetType(), target.GetType()) == false)
+                {
+                    validationResult = new ValidationResult(false, string.Format("Rule {0} không hỗ trợ cho kiểu dữ liệu {1}", GetType(), target.GetType()));
+                    return validationResult;
+                }
+
+                if (CheckValid(target) == false)
                 {
                     validationResult = new ValidationResult(false, errorMessage);
                 }
@@ -37,5 +45,6 @@ namespace Validation_Framework.Rule
         }
 
         protected abstract bool CheckValid(dynamic target);
+        protected abstract void AddSupportType();
     }
 }

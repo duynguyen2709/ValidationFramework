@@ -19,5 +19,10 @@
             }
             return true;
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

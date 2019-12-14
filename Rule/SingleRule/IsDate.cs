@@ -19,5 +19,10 @@ namespace Validation_Framework.Rule
                 System.Globalization.DateTimeStyles.None, out result);
             return check;
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

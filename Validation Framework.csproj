@@ -55,6 +55,7 @@
     <Compile Include="Rule\Builder\RuleBuilder.cs" />
     <Compile Include="Rule\CompoundRule\IsEmail.cs" />
     <Compile Include="Rule\CompoundRule\IsPhoneNumber.cs" />
+    <Compile Include="Rule\RuleContainer.cs" />
     <Compile Include="Rule\SingleRule\HasLowerCase.cs" />
     <Compile Include="Rule\SingleRule\HasNumber.cs" />
     <Compile Include="Rule\SingleRule\HasUpperCase.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Rule\SingleRule\MinLength.cs" />
     <Compile Include="Rule\Base\SingleRule.cs" />
     <Compile Include="Rule\SingleRule\StartWith.cs" />
+    <Compile Include="Rule\Utility\Utility.cs" />
     <Compile Include="Validator\AbstractValidator.cs" />
     <Compile Include="Validator\ClassValidator.cs" />
     <Compile Include="Validator\ComponentValidator.cs" />

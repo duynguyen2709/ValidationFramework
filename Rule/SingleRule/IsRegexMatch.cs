@@ -27,5 +27,10 @@ namespace Validation_Framework.Rule
             }
             return false;
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

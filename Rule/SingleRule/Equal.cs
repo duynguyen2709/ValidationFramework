@@ -10,6 +10,11 @@
             value = n;
         }
 
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.NumericTypes);
+        }
+
         protected override bool CheckValid(dynamic target)
         {
             return (target == value);

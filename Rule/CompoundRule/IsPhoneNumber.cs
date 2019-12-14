@@ -12,5 +12,10 @@
             AddRule(new StartWith("0"));
             AddRule(new IsNumber());
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

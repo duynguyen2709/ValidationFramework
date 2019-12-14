@@ -9,9 +9,15 @@
         {
             value = input;
         }
+
         protected override bool CheckValid(dynamic target)
         {
             return (target[0] == value[0]);
+        }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
         }
     }
 }

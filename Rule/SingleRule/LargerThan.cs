@@ -14,5 +14,10 @@
         {
             return (target > value);
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.NumericTypes);
+        }
     }
 }

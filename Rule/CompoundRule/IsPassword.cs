@@ -11,5 +11,10 @@
             AddRule(new HasUpperCase());
             AddRule(new HasNumber());
         }
+
+        protected override void AddSupportType()
+        {
+            RuleContainer.GetInstance().AddSupportType(GetType(), Utility.StringTypes);
+        }
     }
 }

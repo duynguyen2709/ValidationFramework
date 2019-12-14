@@ -1,4 +1,7 @@
-﻿namespace Validation_Framework.Rule
+﻿using System;
+using System.Collections.Generic;
+
+namespace Validation_Framework.Rule
 {
     public class IsNumber : SingleRule
     {
@@ -30,6 +33,14 @@
             }
 
             return true;
+        }
+
+        protected override void AddSupportType()
+        {
+            List<Type> types = new List<Type>();
+            types.AddRange(Utility.NumericTypes);
+            types.AddRange(Utility.StringTypes);
+            RuleContainer.GetInstance().AddSupportType(GetType(), types);
         }
     }
 }
