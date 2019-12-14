@@ -4,7 +4,6 @@ namespace Validation_Framework.Rule
 {
     public class HasUpperCase : SingleRule
     {
-
         public HasUpperCase() : this("Chuỗi phải chứa ít nhất 1 kí tự thường", 1)
         { }
 

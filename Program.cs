@@ -14,7 +14,7 @@ namespace Validation_Framework
             Console.OutputEncoding = Encoding.UTF8;
             Info info = new Info("112312312312312", 2);
 
-            AutoValidator autoValidator = new AutoValidator(typeof(Info));
+            ClassValidator autoValidator = new ClassValidator(typeof(Info));
 
             autoValidator.Validate(info).ForEach(
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
@@ -28,7 +28,7 @@ namespace Validation_Framework
 
             Console.WriteLine("----------------------------------------");
 
-            InfoValidator infoValidate = new InfoValidator("2", 3);
+            UserValidator infoValidate = new UserValidator("2", 3);
 
             infoValidate.Validate().ForEach(
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
@@ -36,7 +36,7 @@ namespace Validation_Framework
 
             Console.WriteLine("----------------------------------------");
 
-            infoValidate.ValidateByPropertyName(nameof(InfoValidator.Name)).ForEach(
+            infoValidate.ValidateByPropertyName(nameof(UserValidator.Email)).ForEach(
                 x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
                 );
 

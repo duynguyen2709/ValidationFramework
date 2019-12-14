@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Demo\Info.cs" />
-    <Compile Include="Demo\InfoValidator.cs" />
+    <Compile Include="Demo\UserValidator.cs" />
     <Compile Include="Exception\PropertyNotFoundException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Rule\Base\SingleRule.cs" />
     <Compile Include="Rule\SingleRule\StartWith.cs" />
     <Compile Include="Validator\AbstractValidator.cs" />
-    <Compile Include="Validator\AutoValidator.cs" />
+    <Compile Include="Validator\ClassValidator.cs" />
     <Compile Include="Validator\ComponentValidator.cs" />
     <Compile Include="Validator\CustomValidator.cs" />
     <Compile Include="Validator\FieldValidator.cs" />

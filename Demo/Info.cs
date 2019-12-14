@@ -4,7 +4,7 @@ namespace Validation_Framework.Demo
 {
     public class Info
     {
-        [MinLength(123)]
+        [MinLength(8)]
         [IsPassword(errorMessage: "Khong phai password")]
         public string Name;
 

@@ -18,16 +18,14 @@ namespace Validation_Framework.Rule
 
         protected sealed override bool CheckValid(dynamic value)
         {
-            bool result = true;
-
             foreach (AbstractRule abstractRule in listRule)
             {
                 if (abstractRule.Validate(value).IsValid == false)
                 {
-                    result = false;
+                    return false;
                 }
             }
-            return result;
+            return true;
         }
     }
 }
