@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using Validation_Framework.Rule;
-using Validation_Framework.validator;
+using Validation_Framework.Validator;
 
 namespace Validation_Framework.Rule
 {

@@ -1,4 +1,4 @@
-﻿namespace Validation_Framework.result
+﻿namespace Validation_Framework.Result
 {
     public class ValidationResult
     {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Validation_Framework.result;
+using Validation_Framework.Result;
 using Validation_Framework.Rule;
 
 namespace UnitTest

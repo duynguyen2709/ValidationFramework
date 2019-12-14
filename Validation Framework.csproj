@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo\Info.cs" />
+    <Compile Include="Demo\InfoValidator.cs" />
     <Compile Include="Exception\PropertyNotFoundException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,7 +76,6 @@
     <Compile Include="Validator\ComponentValidator.cs" />
     <Compile Include="Validator\CustomValidator.cs" />
     <Compile Include="Validator\FieldValidator.cs" />
-    <Compile Include="Validator\ValidationPair.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

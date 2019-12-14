@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Validation_Framework.result;
+using Validation_Framework.Result;
 
-namespace Validation_Framework.validator
+namespace Validation_Framework.Validator
 {
     internal class CustomValidator : ComponentValidator
     {

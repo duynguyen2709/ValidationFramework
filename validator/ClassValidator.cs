@@ -4,9 +4,9 @@ using Validation_Framework.Rule;
 
 namespace Validation_Framework.Validator
 {
-    public class AutoValidator : ComponentValidator
+    public class ClassValidator : ComponentValidator
     {
-        public AutoValidator(Type type)
+        public ClassValidator(Type type)
         {
             foreach (FieldInfo property in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
             {

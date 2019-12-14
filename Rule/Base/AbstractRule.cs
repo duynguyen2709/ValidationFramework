@@ -1,5 +1,5 @@
 ﻿using System;
-using Validation_Framework.result;
+using Validation_Framework.Result;
 
 namespace Validation_Framework.Rule
 {

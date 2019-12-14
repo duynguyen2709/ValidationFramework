@@ -1,32 +1,10 @@
 ﻿using System.Collections.Generic;
-using Validation_Framework.result;
+using Validation_Framework.Result;
 
-namespace Validation_Framework.validator
+namespace Validation_Framework.Validator
 {
-    public abstract class AbstractValidator
-    {
-        public List<ValidationResult> ListResult { get; set; }
-
-        public bool IsValid
-        {
-            get
-            {
-                foreach (ValidationResult result in ListResult)
-                {
-                    if (result.IsValid == false)
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-
-        public AbstractValidator()
-        {
-            ListResult = new List<ValidationResult>();
-        }
-
-        public abstract List<ValidationResult> Validate(dynamic value);
+    public interface AbstractValidator
+    {       
+        List<ValidationResult> Validate(dynamic target);
     }
 }

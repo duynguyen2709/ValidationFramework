@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Validation_Framework.result;
+using Validation_Framework.Result;
 using Validation_Framework.Rule;
 
-namespace Validation_Framework.validator
+namespace Validation_Framework.Validator
 {
     public class FieldValidator : AbstractValidator
     {
@@ -13,9 +13,10 @@ namespace Validation_Framework.validator
             this.listRule = listRule;
         }
 
-        public override List<ValidationResult> Validate(dynamic value)
+        public List<ValidationResult> Validate(dynamic value)
         {
-            ListResult.Clear();
+            List<ValidationResult> ListResult = new List<ValidationResult>();
+
             foreach (AbstractRule rule in listRule)
             {
                 ListResult.Add(rule.Validate(value));
