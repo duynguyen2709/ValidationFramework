@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Validation_Framework.rule
+namespace Validation_Framework.Rule
 {
     public class IsDate : SingleRule
     {
-        public IsDate() : base("Không phải ngày")
+        public IsDate(string format) : this("Không phù hợp định dạng ngày", format)
         { }
 
-        public IsDate(string errorMessage) : base(errorMessage)
+        public IsDate(string errorMessage, string format) : base(errorMessage)
         {
-
+            value = format;
         }
 
         protected override bool CheckValid(dynamic target)
         {
             DateTime result;
-            string[] formats = { "dd/MM/yyyy", "dd/M/yyyy", "d/M/yyyy", "d/MM/yyyy",
-                    "dd/MM/yy", "dd/M/yy", "d/M/yy", "d/MM/yy"};
-            var check = DateTime.TryParseExact(target,formats, System.Globalization.CultureInfo.InvariantCulture,
+            dynamic check = DateTime.TryParseExact(target, value, System.Globalization.CultureInfo.InvariantCulture,
                 System.Globalization.DateTimeStyles.None, out result);
             return check;
         }

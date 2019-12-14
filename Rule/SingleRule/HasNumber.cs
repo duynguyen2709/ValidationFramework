@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 
-namespace Validation_Framework.rule
+namespace Validation_Framework.Rule
 {
     public class HasNumber : SingleRule
     {
-
-        public HasNumber() : base("Chuỗi phải chứa số")
+        public HasNumber() : this(string.Format("Chuỗi phải chứa ít nhất {0} số", 1))
         {
             value = 1;
         }

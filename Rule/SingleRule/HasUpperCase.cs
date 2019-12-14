@@ -1,14 +1,12 @@
 ﻿using System.Linq;
 
-namespace Validation_Framework.rule
+namespace Validation_Framework.Rule
 {
     public class HasUpperCase : SingleRule
     {
 
-        public HasUpperCase() : base("Chuỗi phải chứa ít nhất 1 kí tự hoa")
-        {
-            value = 1;
-        }
+        public HasUpperCase() : this("Chuỗi phải chứa ít nhất 1 kí tự thường", 1)
+        { }
 
         public HasUpperCase(string message, int n = 1) : base(message)
         {

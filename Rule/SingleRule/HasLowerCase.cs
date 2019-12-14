@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
-namespace Validation_Framework.rule
+namespace Validation_Framework.Rule
 {
     public class HasLowerCase : SingleRule
     {
 
-        public HasLowerCase() : base("Chuỗi phải chứa ít nhất 1 kí tự thường")
-        {
-            value = 1;
-        }
+        public HasLowerCase() : this("Chuỗi phải chứa ít nhất 1 kí tự thường", 1)
+        { }
 
         public HasLowerCase(string message, int n = 1) : base(message)
         {

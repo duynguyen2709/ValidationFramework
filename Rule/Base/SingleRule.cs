@@ -1,4 +1,4 @@
-﻿namespace Validation_Framework.rule
+﻿namespace Validation_Framework.Rule
 {
     public abstract class SingleRule : AbstractRule
     {

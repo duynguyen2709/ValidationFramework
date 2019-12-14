@@ -1,8 +1,6 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Validation_Framework.result;
-using Validation_Framework.rule;
+using Validation_Framework.Rule;
 
 namespace UnitTest
 {
@@ -21,7 +19,7 @@ namespace UnitTest
         [TestMethod]
         public void TestRuleMaxLength()
         {
-            SingleRule rule = new MaxLength(3);
+            SingleRule rule = new LargerThan(3);
             ValidationResult result = rule.Validate("abcd");
 
             Assert.IsFalse(result.IsValid);
@@ -72,15 +70,15 @@ namespace UnitTest
         public void TestIsEmail()
         {
             CompoundRule rule = new IsEmail();
-            ValidationResult result = rule.Validate("Duytv2907@gmail.com.");
+            ValidationResult result = rule.Validate("naduy.hcmus@gmail.com");
 
-            Assert.IsFalse(result.IsValid);
+            Assert.IsTrue(result.IsValid);
         }
 
         [TestMethod]
         public void TestIsDate()
         {
-            SingleRule rule = new IsDate();
+            SingleRule rule = new IsDate("dd/M/yyyy");
             ValidationResult result = rule.Validate("18/1/2017");
 
             Assert.IsTrue(result.IsValid);

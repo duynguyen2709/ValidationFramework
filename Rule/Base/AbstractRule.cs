@@ -1,7 +1,7 @@
 ﻿using System;
 using Validation_Framework.result;
 
-namespace Validation_Framework.rule
+namespace Validation_Framework.Rule
 {
     public abstract class AbstractRule : Attribute
     {
@@ -17,14 +17,22 @@ namespace Validation_Framework.rule
         public ValidationResult Validate(dynamic target)
         {
             ValidationResult validationResult;
-            if (!CheckValid(target))
+            try
             {
-                validationResult = new ValidationResult(false, errorMessage);
+                if (!CheckValid(target))
+                {
+                    validationResult = new ValidationResult(false, errorMessage);
+                }
+                else
+                {
+                    validationResult = new ValidationResult(true, "");
+                }
             }
-            else
+            catch (Exception e)
             {
-                validationResult = new ValidationResult(true, "");
+                validationResult = new ValidationResult(false, e.Message);
             }
+
             return validationResult;
         }
 

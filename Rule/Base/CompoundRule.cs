@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Validation_Framework.rule
+namespace Validation_Framework.Rule
 {
     public abstract class CompoundRule : AbstractRule
     {

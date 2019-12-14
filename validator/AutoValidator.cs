@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reflection;
-using Validation_Framework.builder;
-using Validation_Framework.rule;
+using Validation_Framework.Rule;
 
 namespace Validation_Framework.validator
 {
@@ -11,20 +10,20 @@ namespace Validation_Framework.validator
         {
             foreach (FieldInfo property in type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
             {
-                Builder builder = Builder.Create();
-                bool    hasRule = false;
+                RuleBuilder builder = RuleBuilder.Create();
+                bool hasRule = false;
 
                 foreach (Attribute attribute in property.GetCustomAttributes(typeof(AbstractRule), false))
                 {
                     builder.AddRule((attribute as AbstractRule));
                     hasRule = true;
-                }            
+                }
 
                 if (hasRule)
                 {
                     SetValidator(property.Name, x => property.GetValue(x), builder.Build());
                 }
             }
-        }        
+        }
     }
 }

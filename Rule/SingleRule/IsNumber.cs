@@ -1,14 +1,12 @@
-﻿namespace Validation_Framework.rule
+﻿namespace Validation_Framework.Rule
 {
     public class IsNumber : SingleRule
     {
-        public IsNumber() : base("Không phải số")
+        public IsNumber() : this("Không phải số")
         { }
 
         public IsNumber(string errorMessage) : base(errorMessage)
-        {
-
-        }
+        { }
 
         protected override bool CheckValid(dynamic target)
         {
@@ -26,7 +24,7 @@
                     Dotcount++;
                 }
                 else {
-                    if (c < '0' || c > '9' || Dotcount>=2 ) // Avoid using .IsDigit or .IsNumeric as they will return true for other characters
+                    if (c < '0' || c > '9' || Dotcount>=2 )
                     return false;
                 }
             }

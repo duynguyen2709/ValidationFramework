@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
-using Validation_Framework.rule;
+using Validation_Framework.Rule;
 using Validation_Framework.validator;
 
-namespace Validation_Framework.builder
+namespace Validation_Framework.Rule
 {
-    public class Builder
+    public class RuleBuilder
     {
         private List<AbstractRule> listRule;
 
-        private Builder()
+        private RuleBuilder()
         {
             listRule = new List<AbstractRule>();
         }
 
-        public static Builder Create()
+        public static RuleBuilder Create()
         {
-            return new Builder();
+            return new RuleBuilder();
         }
 
-        public Builder AddRule(AbstractRule rule)
+        public RuleBuilder AddRule(AbstractRule rule)
         {
             listRule.Add(rule);
             return this;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
-using Validation_Framework.builder;
-using Validation_Framework.rule;
+using Validation_Framework.Rule;
 using Validation_Framework.validator;
 
 namespace Validation_Framework
@@ -40,13 +39,13 @@ namespace Validation_Framework
             protected override void Init()
             {
                 SetValidator(nameof(Name), x => x.Name,
-                                    Builder.Create()
+                                    RuleBuilder.Create()
                                     .AddRule(new IsPassword("Khong phai password"))
                                     .AddRule(new IsNumber())
                                     .Build());
 
                 SetValidator(nameof(ID), x => x.ID,
-                                    Builder.Create()
+                                    RuleBuilder.Create()
                                     .AddRule(new IsPassword("Khong phai password Nha"))
                                     .AddRule(new IsNumber())
                                     .Build());
@@ -92,8 +91,6 @@ namespace Validation_Framework
                 );
 
             Console.WriteLine("----------------------------------------");
-            Console.ReadLine();
-
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Validation_Framework.rule
+﻿namespace Validation_Framework.Rule
 {
     public class IsPassword : CompoundRule
     {
@@ -10,7 +10,6 @@
             AddRule(new MinLength(8));
             AddRule(new HasUpperCase());
             AddRule(new HasNumber());
-            // more rules here
         }
     }
 }
