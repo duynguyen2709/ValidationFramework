@@ -15,7 +15,8 @@ namespace Validation_App.Rule
         protected override bool CheckValid(dynamic target)
         {
             int count = (target as string).Count(c => char.IsUpper(c));
-            if(count < value)
+            Trace.WriteLine("HasUpperCase: " + count);
+            if (count < value)
                 Trace.WriteLine("Error HasUpperCase");
             return (count >= value);
         }

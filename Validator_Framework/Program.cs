@@ -12,7 +12,7 @@ namespace Validation_Framework
             // !!! Don't delete this line0
             // Print UTF8 character in console
             Console.OutputEncoding = Encoding.UTF8;
-            Info info = new Info("112312312312312Ac", 2);
+            Info info = new Info("112312312312312Ac", "12/12/2019");
 
             ClassValidator autoValidator = new ClassValidator(typeof(Info));
 

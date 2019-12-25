@@ -8,13 +8,13 @@ namespace Validation_Framework.Demo
         [IsPassword(errorMessage: "Khong phai password")]
         public string Name;
 
-        [IsNumber]
-        public int ID;
+        [IsDate("dd'/'MM'/'yyyy")]
+        public string date;
 
-        public Info(string name, int id)
+        public Info(string name, string date)
         {
             Name = name;
-            ID = id;
+            this.date = date;
         }
     }
 }

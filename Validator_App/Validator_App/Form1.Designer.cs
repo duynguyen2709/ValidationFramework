@@ -161,6 +161,8 @@ namespace Validator_App
             this.chbRedText.TabIndex = 11;
             this.chbRedText.Text = "Red text";
             this.chbRedText.UseVisualStyleBackColor = true;
+            this.chbRedText.CheckedChanged += new System.EventHandler(this.chbRedText_CheckedChanged);
+            this.chbRedText.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chbRedText_MouseClick);
             // 
             // chbPopup
             // 
@@ -172,6 +174,8 @@ namespace Validator_App
             this.chbPopup.TabIndex = 12;
             this.chbPopup.Text = "Popup/Modal";
             this.chbPopup.UseVisualStyleBackColor = true;
+            this.chbPopup.CheckedChanged += new System.EventHandler(this.chbPopup_CheckedChanged);
+            this.chbPopup.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chbPopup_MouseClick);
             // 
             // btnSubmit
             // 

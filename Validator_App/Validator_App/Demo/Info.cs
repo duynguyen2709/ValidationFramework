@@ -7,22 +7,25 @@ namespace Validation_App.Demo
         [IsEmail]
         public string Email;
 
-        [MinLength(8)]
         [IsPassword(errorMessage: "Khong phai password")]
         public string Password;
 
         [HasUpperCase("Phai co chu viet hoa")]
         public string Name;
 
+        [IsPhoneNumber]
         public string PhoneNumber;
 
-        //[IsNumber]
-        //public int ID;
+        [IsDate("Phai dung dinh dang dd/MM/yyyy", "dd'/'MM'/'yyyy")]
+        public string BirthDate;
 
-        public Info(string name)
+        public Info(string email, string password, string name,  string phone, string date)
         {
+            Email = email;
+            Password = password;
+            PhoneNumber = phone;
+            BirthDate = date;
             Name = name;
-            //ID = id;
         }
     }
 }
