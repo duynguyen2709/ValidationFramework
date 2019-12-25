@@ -9,10 +9,10 @@ namespace Validation_Framework
     {
         private static void Main(string[] args)
         {
-            // !!! Don't delete this line
+            // !!! Don't delete this line0
             // Print UTF8 character in console
             Console.OutputEncoding = Encoding.UTF8;
-            Info info = new Info("112312312312312", 2);
+            Info info = new Info("112312312312312Ac", 2);
 
             ClassValidator autoValidator = new ClassValidator(typeof(Info));
 
