@@ -1,4 +1,4 @@
-﻿using Validation_App.Rule;
+﻿using Validation_Framework.Rule;
 
 namespace Validation_App.Demo
 {

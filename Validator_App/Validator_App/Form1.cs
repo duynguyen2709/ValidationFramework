@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Validation_App.Demo;
-using Validation_App.Result;
-using Validation_App.Validator;
+using Validation_Framework.Validator;
 
 namespace Validator_App
 {
@@ -77,10 +76,11 @@ namespace Validator_App
                     {
                         if (chbPopup.Checked)
                             MessageBox.Show("Khong phai password", "Error", MessageBoxButtons.OK);
-                        else { 
-                        isTruePassword = false;
-                        lbPassword.Text = x.ErrorMessage;
-                        lbPassword.Visible = true;
+                        else
+                        {
+                            isTruePassword = false;
+                            lbPassword.Text = x.ErrorMessage;
+                            lbPassword.Visible = true;
                         }
                     }
 
@@ -197,12 +197,12 @@ namespace Validator_App
 
         private void chbRedText_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void chbPopup_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chbPopup_MouseClick(object sender, MouseEventArgs e)
