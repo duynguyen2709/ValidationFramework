@@ -31,6 +31,7 @@ namespace Validator_App
             bool isTruePassword = true;
             bool isTruePhone = true;
             bool isTrueDate = true;
+            bool isPopUpShowed = false;
 
             lbPhone.Visible = false;
             lbName.Visible = false;
@@ -49,13 +50,18 @@ namespace Validator_App
                 {
                     if (!x.IsValid)
                     {
-                        if (chbPopup.Checked)
-                            MessageBox.Show("Khong phai email", "Error", MessageBoxButtons.OK);
+                        if (chbPopup.Checked) { 
+                            if (!isPopUpShowed)
+                            {
+                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                isPopUpShowed = true;
+                            }
+                        }
                         else
                         {
-                            isTrueEmail = false;
-                            lbEmail.Text = x.ErrorMessage;
-                            lbEmail.Visible = true;
+                           isTrueEmail = false;
+                           lbEmail.Text = x.ErrorMessage;
+                           lbEmail.Visible = true;
                         }
                     }
 
@@ -75,7 +81,12 @@ namespace Validator_App
                     if (!x.IsValid)
                     {
                         if (chbPopup.Checked)
-                            MessageBox.Show("Khong phai password", "Error", MessageBoxButtons.OK);
+                        {
+                            if (!isPopUpShowed)
+                            {
+                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            }
+                        }
                         else
                         {
                             isTruePassword = false;
@@ -101,7 +112,12 @@ namespace Validator_App
                     if (!x.IsValid)
                     {
                         if (chbPopup.Checked)
-                            MessageBox.Show("Ten khong hop le", "Error", MessageBoxButtons.OK);
+                        {
+                            if (!isPopUpShowed)
+                            {
+                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            }
+                        }
                         else
                         {
                             isTrueName = false;
@@ -126,7 +142,12 @@ namespace Validator_App
                    if (!x.IsValid)
                    {
                        if (chbPopup.Checked)
-                           MessageBox.Show("So dien thoai khong hop le", "Error", MessageBoxButtons.OK);
+                       {
+                           if (!isPopUpShowed)
+                           {
+                               MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                           }
+                       }
                        else
                        {
                            isTruePhone = false;
@@ -151,7 +172,12 @@ namespace Validator_App
                     if (!x.IsValid)
                     {
                         if (chbPopup.Checked)
-                            MessageBox.Show("Ngay sinh phai co dinh dang dd/MM/yyyy", "Error", MessageBoxButtons.OK);
+                        {
+                            if (!isPopUpShowed)
+                            {
+                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            }
+                        }
                         else
                         {
                             isTrueDate = false;
@@ -169,30 +195,7 @@ namespace Validator_App
             #endregion
 
 
-            //foreach(ValidationResult v in autoValidator)
-
-
-            //Console.WriteLine("----------------------------------------");
-
-            //autoValidator.ValidateByPropertyName(info, nameof(Info.Name)).ForEach(
-            //    x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
-            //    );
-
-            //Console.WriteLine("----------------------------------------");
-
-            //UserValidator infoValidate = new UserValidator("2", 3);
-
-            //infoValidate.Validate().ForEach(
-            //    x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
-            //    );
-
-            //Console.WriteLine("----------------------------------------");
-
-            //infoValidate.ValidateByPropertyName(nameof(UserValidator.Email)).ForEach(
-            //    x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
-            //    );
-
-            //Console.WriteLine("----------------------------------------");
+           
         }
 
         private void chbRedText_CheckedChanged(object sender, EventArgs e)
