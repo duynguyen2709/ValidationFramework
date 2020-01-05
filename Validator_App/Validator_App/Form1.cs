@@ -42,13 +42,26 @@ namespace Validator_App
             bool isTruePassword = true;
             bool isTruePhone = true;
             bool isTrueDate = true;
-            bool isPopUpShowed = false;
+            //bool isPopUpShowed = false;
+
+            string CheckBoxErrorString = "";
 
             lbPhone.Visible = false;
             lbName.Visible = false;
             lbPassword.Visible = false;
             lbBirthdate.Visible = false;
             lbEmail.Visible = false;
+
+            if (isFirstTimeClickEmail)
+                txtEmail.Text = "";
+            if (isFirstTimeClickDate)
+                txtBirthdate.Text = "";
+            if (isFirstTimeClickName)
+                txtName.Text = "";
+            if (isFirstTimeClickPassword)
+                txtPassword.Text = "";
+            if (isFirstTimeClickPhone)
+                txtPhone.Text = "";
 
             Info info = new Info(txtEmail.Text, txtPassword.Text, txtName.Text, txtPhone.Text, txtBirthdate.Text);
 
@@ -61,12 +74,14 @@ namespace Validator_App
                 {
                     if (!x.IsValid)
                     {
-                        if (chbPopup.Checked) { 
-                            if (!isPopUpShowed)
-                            {
-                                MessageBox.Show("Email: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
-                                isPopUpShowed = true;
-                            }
+                        if (chbPopup.Checked) {
+                            //if (!isPopUpShowed)
+                            //{
+                            //    MessageBox.Show("Email: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            //    isPopUpShowed = true;
+                            //}
+
+                            CheckBoxErrorString += "Email: " + x.ErrorMessage + "\n";
                         }
                         else
                         {
@@ -93,11 +108,13 @@ namespace Validator_App
                     {
                         if (chbPopup.Checked)
                         {
-                            if (!isPopUpShowed)
-                            {
-                                MessageBox.Show("Password: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
-                                isPopUpShowed = true;
-                            }
+                            //if (!isPopUpShowed)
+                            //{
+                            //    MessageBox.Show("Password: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            //    isPopUpShowed = true;
+                            //}
+
+                            CheckBoxErrorString += "Password: " + x.ErrorMessage + "\n";
                         }
                         else
                         {
@@ -125,11 +142,13 @@ namespace Validator_App
                     {
                         if (chbPopup.Checked)
                         {
-                            if (!isPopUpShowed)
-                            {
-                                MessageBox.Show("Name: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
-                                isPopUpShowed = true;
-                            }
+                            //if (!isPopUpShowed)
+                            //{
+                            //    MessageBox.Show("Name: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            //    isPopUpShowed = true;
+                            //}
+
+                            CheckBoxErrorString += "Name: " + x.ErrorMessage + "\n";
                         }
                         else
                         {
@@ -156,11 +175,13 @@ namespace Validator_App
                    {
                        if (chbPopup.Checked)
                        {
-                           if (!isPopUpShowed)
-                           {
-                               MessageBox.Show("Phone number: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
-                               isPopUpShowed = true;
-                           }
+                           //if (!isPopUpShowed)
+                           //{
+                           //    MessageBox.Show("Phone number: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                           //    isPopUpShowed = true;
+                           //}
+
+                           CheckBoxErrorString += "Phone number: " + x.ErrorMessage + "\n";
                        }
                        else
                        {
@@ -187,11 +208,13 @@ namespace Validator_App
                     {
                         if (chbPopup.Checked)
                         {
-                            if (!isPopUpShowed)
-                            {
-                                MessageBox.Show("Date: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
-                                isPopUpShowed = true;
-                            }
+                            //if (!isPopUpShowed)
+                            //{
+                            //    MessageBox.Show("Date: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                            //    isPopUpShowed = true;
+                            //}
+
+                            CheckBoxErrorString += "Date: " + x.ErrorMessage + "\n";
                         }
                         else
                         {
@@ -209,7 +232,10 @@ namespace Validator_App
             }
             #endregion
 
-
+            if (chbPopup.Checked)
+            {
+                MessageBox.Show(CheckBoxErrorString, "Error", MessageBoxButtons.OK);
+            }
            
         }
 
