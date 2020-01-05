@@ -49,6 +49,8 @@ namespace Validator_App
             this.lbName = new System.Windows.Forms.Label();
             this.lbPhone = new System.Windows.Forms.Label();
             this.lbBirthdate = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.chbPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +77,7 @@ namespace Validator_App
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(59, 109);
+            this.label3.Location = new System.Drawing.Point(59, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 20);
             this.label3.TabIndex = 2;
@@ -85,7 +87,7 @@ namespace Validator_App
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 155);
+            this.label4.Location = new System.Drawing.Point(26, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 20);
             this.label4.TabIndex = 3;
@@ -95,7 +97,7 @@ namespace Validator_App
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(62, 203);
+            this.label5.Location = new System.Drawing.Point(62, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 20);
             this.label5.TabIndex = 4;
@@ -105,7 +107,7 @@ namespace Validator_App
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2, 248);
+            this.label6.Location = new System.Drawing.Point(2, 281);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 20);
             this.label6.TabIndex = 5;
@@ -116,46 +118,52 @@ namespace Validator_App
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtEmail.Location = new System.Drawing.Point(138, 15);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(280, 26);
+            this.txtEmail.Size = new System.Drawing.Size(469, 26);
             this.txtEmail.TabIndex = 6;
+            this.txtEmail.Click += new System.EventHandler(this.txtEmail_Click);
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtPassword.Location = new System.Drawing.Point(138, 61);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(280, 26);
+            this.txtPassword.Size = new System.Drawing.Size(469, 26);
             this.txtPassword.TabIndex = 7;
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtName.Location = new System.Drawing.Point(138, 106);
+            this.txtName.Location = new System.Drawing.Point(138, 139);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(280, 26);
+            this.txtName.Size = new System.Drawing.Size(469, 26);
             this.txtName.TabIndex = 8;
+            this.txtName.Click += new System.EventHandler(this.txtName_Click);
             // 
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtPhone.Location = new System.Drawing.Point(138, 152);
+            this.txtPhone.Location = new System.Drawing.Point(138, 185);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(280, 26);
+            this.txtPhone.Size = new System.Drawing.Size(469, 26);
             this.txtPhone.TabIndex = 9;
+            this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
             // 
             // txtBirthdate
             // 
             this.txtBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtBirthdate.Location = new System.Drawing.Point(138, 200);
+            this.txtBirthdate.Location = new System.Drawing.Point(138, 233);
             this.txtBirthdate.Name = "txtBirthdate";
-            this.txtBirthdate.Size = new System.Drawing.Size(280, 26);
+            this.txtBirthdate.Size = new System.Drawing.Size(469, 26);
             this.txtBirthdate.TabIndex = 10;
+            this.txtBirthdate.Click += new System.EventHandler(this.txtBirthdate_Click);
             // 
             // chbRedText
             // 
             this.chbRedText.AutoSize = true;
             this.chbRedText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.chbRedText.Location = new System.Drawing.Point(138, 248);
+            this.chbRedText.Location = new System.Drawing.Point(138, 281);
             this.chbRedText.Name = "chbRedText";
             this.chbRedText.Size = new System.Drawing.Size(88, 24);
             this.chbRedText.TabIndex = 11;
@@ -168,7 +176,7 @@ namespace Validator_App
             // 
             this.chbPopup.AutoSize = true;
             this.chbPopup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.chbPopup.Location = new System.Drawing.Point(297, 248);
+            this.chbPopup.Location = new System.Drawing.Point(297, 281);
             this.chbPopup.Name = "chbPopup";
             this.chbPopup.Size = new System.Drawing.Size(121, 24);
             this.chbPopup.TabIndex = 12;
@@ -180,7 +188,7 @@ namespace Validator_App
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnSubmit.Location = new System.Drawing.Point(199, 278);
+            this.btnSubmit.Location = new System.Drawing.Point(199, 311);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(112, 44);
             this.btnSubmit.TabIndex = 13;
@@ -212,7 +220,7 @@ namespace Validator_App
             // 
             this.lbName.AutoSize = true;
             this.lbName.ForeColor = System.Drawing.Color.Red;
-            this.lbName.Location = new System.Drawing.Point(135, 133);
+            this.lbName.Location = new System.Drawing.Point(135, 166);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(35, 13);
             this.lbName.TabIndex = 16;
@@ -222,7 +230,7 @@ namespace Validator_App
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.ForeColor = System.Drawing.Color.Red;
-            this.lbPhone.Location = new System.Drawing.Point(135, 181);
+            this.lbPhone.Location = new System.Drawing.Point(135, 214);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(41, 13);
             this.lbPhone.TabIndex = 17;
@@ -232,17 +240,38 @@ namespace Validator_App
             // 
             this.lbBirthdate.AutoSize = true;
             this.lbBirthdate.ForeColor = System.Drawing.Color.Red;
-            this.lbBirthdate.Location = new System.Drawing.Point(135, 229);
+            this.lbBirthdate.Location = new System.Drawing.Point(135, 262);
             this.lbBirthdate.Name = "lbBirthdate";
             this.lbBirthdate.Size = new System.Drawing.Size(41, 13);
             this.lbBirthdate.TabIndex = 18;
             this.lbBirthdate.Text = "label11";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(138, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Show password";
+            // 
+            // chbPassword
+            // 
+            this.chbPassword.AutoSize = true;
+            this.chbPassword.Location = new System.Drawing.Point(231, 110);
+            this.chbPassword.Name = "chbPassword";
+            this.chbPassword.Size = new System.Drawing.Size(15, 14);
+            this.chbPassword.TabIndex = 20;
+            this.chbPassword.UseVisualStyleBackColor = true;
+            this.chbPassword.CheckedChanged += new System.EventHandler(this.chbPassword_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 347);
+            this.ClientSize = new System.Drawing.Size(657, 377);
+            this.Controls.Add(this.chbPassword);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lbBirthdate);
             this.Controls.Add(this.lbPhone);
             this.Controls.Add(this.lbName);
@@ -302,6 +331,8 @@ namespace Validator_App
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbPhone;
         private System.Windows.Forms.Label lbBirthdate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox chbPassword;
     }
 }
 

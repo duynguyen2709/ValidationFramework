@@ -14,6 +14,12 @@ namespace Validator_App
 {
     public partial class Form1 : Form
     {
+        bool isFirstTimeClickName = true;
+        bool isFirstTimeClickPassword = true;
+        bool isFirstTimeClickPhone = true;
+        bool isFirstTimeClickDate = true;
+        bool isFirstTimeClickEmail = true;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +28,11 @@ namespace Validator_App
             lbPassword.Visible = false;
             lbBirthdate.Visible = false;
             lbEmail.Visible = false;
+            txtEmail.Text = "Phải có định dạng local-part@domain name";
+            txtPassword.Text = "Phải có ít nhất 8 kí tự, trong đó có ít nhất 1 chữ in hoa và 1 chữ số";
+            txtPhone.Text = "Phải có đúng 10 chữ số, bắt đầu bằng chữ số 0";
+            txtName.Text = "Phải có một chữ in hoa";
+            txtBirthdate.Text = "Phải có định dạng dd/MM/yyyy";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -53,7 +64,7 @@ namespace Validator_App
                         if (chbPopup.Checked) { 
                             if (!isPopUpShowed)
                             {
-                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                MessageBox.Show("Email: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
                                 isPopUpShowed = true;
                             }
                         }
@@ -84,7 +95,7 @@ namespace Validator_App
                         {
                             if (!isPopUpShowed)
                             {
-                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                MessageBox.Show("Password: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
                                 isPopUpShowed = true;
                             }
                         }
@@ -116,7 +127,7 @@ namespace Validator_App
                         {
                             if (!isPopUpShowed)
                             {
-                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                MessageBox.Show("Name: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
                                 isPopUpShowed = true;
                             }
                         }
@@ -147,7 +158,7 @@ namespace Validator_App
                        {
                            if (!isPopUpShowed)
                            {
-                               MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                               MessageBox.Show("Phone number: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
                                isPopUpShowed = true;
                            }
                        }
@@ -178,7 +189,7 @@ namespace Validator_App
                         {
                             if (!isPopUpShowed)
                             {
-                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                MessageBox.Show("Date: " + x.ErrorMessage, "Error", MessageBoxButtons.OK);
                                 isPopUpShowed = true;
                             }
                         }
@@ -220,6 +231,65 @@ namespace Validator_App
         private void chbRedText_MouseClick(object sender, MouseEventArgs e)
         {
             chbPopup.Checked = false;
+        }
+
+        private void chbPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbPassword.Checked)
+                txtPassword.UseSystemPasswordChar = false;
+            else
+                txtPassword.UseSystemPasswordChar = true;
+        }
+
+        private void txtEmail_Click(object sender, EventArgs e)
+        {
+            if(isFirstTimeClickEmail)
+            { 
+                txtEmail.Text = "";
+                isFirstTimeClickEmail = false;
+            }
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            if (isFirstTimeClickPassword)
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                txtPassword.Text = "";
+                isFirstTimeClickPassword = false;
+            }
+        }
+
+        private void txtName_Click(object sender, EventArgs e)
+        {
+            if (isFirstTimeClickName)
+            {
+                txtName.Text = "";
+                isFirstTimeClickName = false;
+            }
+        }
+
+        private void txtPhone_Click(object sender, EventArgs e)
+        {
+            if (isFirstTimeClickPhone)
+            {
+                txtPhone.Text = "";
+                isFirstTimeClickPhone = false;
+            }
+        }
+
+        private void txtBirthdate_Click(object sender, EventArgs e)
+        {
+            if (isFirstTimeClickDate)
+            {
+                txtBirthdate.Text = "";
+                isFirstTimeClickDate = false;
+            }
         }
     }
 }
