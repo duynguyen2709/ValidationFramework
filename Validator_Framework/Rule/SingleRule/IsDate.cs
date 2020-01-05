@@ -4,7 +4,7 @@ namespace Validation_Framework.Rule
 {
     public class IsDate : SingleRule
     {
-        public IsDate(string format) : this("Không phù hợp định dạng ngày", format)
+        public IsDate(string format) : this(string.Format("Không phù hợp định dạng {0}",format), format)
         { }
 
         public IsDate(string errorMessage, string format) : base(errorMessage)

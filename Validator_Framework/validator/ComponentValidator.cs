@@ -45,9 +45,6 @@ namespace Validation_Framework.Validator
             fields.Add(name, new ValidationPair(func, validator));
         }
 
-        protected virtual void Init()
-        { }
-
         private class ValidationPair
         {
             private readonly Func<dynamic, dynamic> func;

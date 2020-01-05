@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Demo\Info.cs" />
     <Compile Include="Demo\UserValidator.cs" />
-    <Compile Include="Exception\PropertyNotFoundException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result\ValidationResult.cs" />

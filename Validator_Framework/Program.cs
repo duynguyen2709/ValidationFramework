@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using Validation_Framework.Demo;
+using Validation_Framework.Rule;
 using Validation_Framework.Validator;
 
 namespace Validation_Framework
@@ -41,6 +42,19 @@ namespace Validation_Framework
                 );
 
             Console.WriteLine("----------------------------------------");
+
+            FieldValidator validator = RuleBuilder.Create()
+                                                    .AddRule(new MinLength(8))
+                                                    .AddRule(new HasUpperCase())
+                                                    .Build();
+
+            string str = "string need to validate";
+            validator.Validate(str).ForEach(
+                x => Console.WriteLine(x.IsValid + " " + x.ErrorMessage)
+                );
+
+            Console.WriteLine("----------------------------------------");
+
         }
     }
 }

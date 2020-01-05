@@ -33,5 +33,8 @@ namespace Validation_Framework.Validator
             }
             return result;
         }
+
+        protected virtual void Init()
+        { }
     }
 }
