@@ -85,6 +85,7 @@ namespace Validator_App
                             if (!isPopUpShowed)
                             {
                                 MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                isPopUpShowed = true;
                             }
                         }
                         else
@@ -116,6 +117,7 @@ namespace Validator_App
                             if (!isPopUpShowed)
                             {
                                 MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                isPopUpShowed = true;
                             }
                         }
                         else
@@ -146,6 +148,7 @@ namespace Validator_App
                            if (!isPopUpShowed)
                            {
                                MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                               isPopUpShowed = true;
                            }
                        }
                        else
@@ -176,6 +179,7 @@ namespace Validator_App
                             if (!isPopUpShowed)
                             {
                                 MessageBox.Show(x.ErrorMessage, "Error", MessageBoxButtons.OK);
+                                isPopUpShowed = true;
                             }
                         }
                         else
